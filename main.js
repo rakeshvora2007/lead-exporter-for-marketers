@@ -4,7 +4,7 @@ CSV, Excelsheet
  */
 let importedFile = document.getElementById("file-importer");
 // Identifyinh the screen
-let screen = document.getElementById("screen");
+let screen = document.getElementById("screen1");
 // Adding event listener
 importedFile.addEventListener("change", importFile);
 
@@ -30,10 +30,43 @@ function importFile(event) {
     //   Checking if there is any data in the field
       if (data.length) JSONContentObject[sheetName] = data;
     });
+
+    let abc = Object.values(JSONContentObject);
+  for (var values in abc) {
+      if (abc.hasOwnProperty(values)) {
+          console.log(abc[values]);
+      }
+  }
+
+  //load the array values
+
+  //screenshot
+
+    // let abc = Object.values(JSONContentObject);
+    // console.log(abc);
+
+
+    // console.log(JSONContentObject.valueOf("sheet1"));
+
+    // let x = JSONContentObject.toString();
+    // console.log(x);
+
+    // const keys = Object.values(JSONContentObject)
+    // for (const values of keys) {
+    //   console.log(keys)
+    // }
+    
     // Converting Object to String to display it on screen
-    JSONContentObject = JSON.stringify(JSONContentObject, 2, 2);
+    //JSONContentObject = JSON.stringify(JSONContentObject, 2, 2);
     //   Dislaying the data on to the screen
-      screen.textContent = JSONContentObject;
+      // screen.textContent = JSONContentObject[6];
+
+      //window.open(JSONContentObject);
+      
+      // let urls = [];
+
+      // urls.push(JSONContentObject);
+      // console.log(urls.indexOf(1));
     };
     // Running fileReader in Binary String Reader Mode
     fileReader.readAsBinaryString(excelSheet);
