@@ -79,6 +79,8 @@ function myFunction(target) {
   var x = document.getElementsByClassName(target);
    let l =x[0].parentNode.removeChild(x[0]);
    console.log(l);
+   arr.pop(l);
+   console.log(arr);
   
   //We need to do this because we have 2 elements with the same ClassName 
   //x will return you an array
@@ -86,8 +88,7 @@ function myFunction(target) {
   // 1st -> Button
   x[0] = "none";
   x[1]= "none";
-  
-  
-  
-
+  ///////////// now just need to export those array/////
 }
+
+
