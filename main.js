@@ -4,7 +4,7 @@ CSV, Excelsheet
  */
 let importedFile = document.getElementById("file-importer");
 // Identifyinh the screen
-let screen = document.getElementById("screen1");
+let screen = document.getElementById("screen");
 // Adding event listener
 importedFile.addEventListener("change", importFile);
 
@@ -29,44 +29,47 @@ function importFile(event) {
       });
     //   Checking if there is any data in the field
       if (data.length) JSONContentObject[sheetName] = data;
-    });
 
-    let abc = Object.values(JSONContentObject);
-  for (var values in abc) {
-      if (abc.hasOwnProperty(values)) {
-          console.log(abc[values]);
+      var arr = Array();
+      for(let i = 0; i < data.length; i++)
+      {
+          
+      arr.push(data[i][0]);
+      // console.log(data[i]);
       }
+      // Get the ID where you want to display the iFrames
+  var links = document.getElementById('list');
+  //Array of URL
+  
+  // This loop will help you to traverse through the URL so you
+  // can add create and add individual URLS
+  for(let i = 0; i<arr.length;i++){
+    
+    //Creating the element here
+    const iframe = document.createElement('iframe');
+    const button = document.createElement("button");
+    iframe.setAttribute("id", i);
+    button.setAttribute("onClick", "myFunction()");
+    
+    console.log(button);
+    //Assigning the URL to the iframe
+    iframe.src = arr[i];
+    
+    //Appending or adding the URL to the (i)th iframe 
+    links.appendChild(iframe);
+    links.appendChild(button);
+
+    
   }
 
-  //load the array values
-
-  //screenshot
-
-    // let abc = Object.values(JSONContentObject);
-    // console.log(abc);
 
 
-    // console.log(JSONContentObject.valueOf("sheet1"));
 
-    // let x = JSONContentObject.toString();
-    // console.log(x);
-
-    // const keys = Object.values(JSONContentObject)
-    // for (const values of keys) {
-    //   console.log(keys)
-    // }
-    
+    });
     // Converting Object to String to display it on screen
     //JSONContentObject = JSON.stringify(JSONContentObject, 2, 2);
     //   Dislaying the data on to the screen
-      // screen.textContent = JSONContentObject[6];
-
-      //window.open(JSONContentObject);
-      
-      // let urls = [];
-
-      // urls.push(JSONContentObject);
-      // console.log(urls.indexOf(1));
+     // screen.textContent = JSONContentObject;
     };
     // Running fileReader in Binary String Reader Mode
     fileReader.readAsBinaryString(excelSheet);

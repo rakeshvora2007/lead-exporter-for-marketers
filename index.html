@@ -12,11 +12,35 @@
 <body>
     <input type="file" id="file-importer"/>
     <br>
-    <pre id="screen"></pre>
+    <!-- <pre id="screen"></pre>
     <br>
     <p>
         <iframe id = "screen1" width="590" height="390", ></iframe>
-    </p>
+    </p> -->
+    <!-- <ul id="list">
+        
+    </ul> -->
+    <div>
+        <!--   This is where we would like to display the iframes -->
+          <div id="list"></div>
+        </div>
+
+    
+
+
+<br>
+<!-- <button onclick="myFunction()">Remove selected fruit</button> -->
+
+        
+<script>
+ function myFunction() {
+   var x = document.getElementById("list");
+   x.remove(x.selectedIndex);
+ }
+
+</script>
+
+
     <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
