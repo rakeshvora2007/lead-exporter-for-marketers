@@ -91,4 +91,12 @@ function myFunction(target) {
   ///////////// now just need to export those array/////
 }
 
+// function saveFile(){
+//   let exportFile = document.getElementById("button-a");
+//   button.onclick = e => exportFunction(e.choose);
+// }
+saveFile.onclick = function(){
+  var blob = new Blob([arr+"  "], {type:"text/plain"});
+  saveAs(blob, "hello.txt");
+};
 
